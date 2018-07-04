@@ -1,0 +1,46 @@
+{% load static from staticfiles%}
+<html lang="en">
+    <head>
+        <script type="text/javascript" src="/admin/jsi18n/"></script>
+        <script type="text/javascript" src="/static/admin/js/vendor/jquery/jquery.js"></script>
+        <script type="text/javascript" src="/static/admin/js/jquery.init.js"></script>
+        <script type="text/javascript" src="/static/admin/js/core.js"></script>
+        <script type="text/javascript" src="/static/admin/js/admin/RelatedObjectLookups.js"></script>
+        <script type="text/javascript" src="/static/admin/js/actions.js"></script>
+        <script type="text/javascript" src="/static/admin/js/urlify.js"></script>
+        <script type="text/javascript" src="/static/admin/js/prepopulate.js"></script>
+        <script type="text/javascript" src="/static/admin/js/vendor/xregexp/xregexp.js"></script>
+        <script type="text/javascript" src="/static/admin/js/calendar.js"></script>
+        <script type="text/javascript" src="/static/admin/js/admin/DateTimeShortcuts.js"></script>
+
+        <meta charset="UTF-8">
+        <title>Proyectos</title>
+        <link rel="stylesheet" href="{% static 'styles.css'%}">
+    </head>
+    <body>
+        <header class="wrapper">
+            <h1><a href="{% url 'home' %}"><img src="{% static 'logo.jpg' %}"/></a> </h1>
+            <nav>
+                <ul>
+                    {% if user.is_authenticated %}
+                        <li>
+                            <form class = "logout-link" action="{% url 'accounts:logout' %}" method="POST">
+                                {% csrf_token %}
+                                <button type="submit">Logout</button>
+                            </form>
+                        </li>
+
+                    {% else %}
+                        <li><a href="{% url 'accounts:login'%}">Login</a></li>
+                        <li><a href="{% url 'accounts:logup'%}">Registrar</a></li>
+                    {% endif%}
+                </ul>
+            </nav>
+
+        </header>
+        <div class = "wrapper">
+            {% block content%}
+            {% endblock %}
+        </div>
+    </body>
+</html>

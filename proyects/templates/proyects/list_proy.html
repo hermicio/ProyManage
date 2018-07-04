@@ -1,0 +1,13 @@
+{% extends 'base_layout.html'%}
+
+{% block content%}
+    <p1>Listas de Proyectos</p1>
+    <div class="proyects">
+        {% for proy in proyects %}
+
+        <div class="proyects">
+            <h2><a href="{% url 'proyects:detalle' %}">{{ proy.name }}</a> </h2>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock%}

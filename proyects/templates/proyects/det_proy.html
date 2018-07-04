@@ -1,0 +1,21 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+
+<div class="detalle_proy">
+    <div class="proyects">
+        {% for proy in proyects %}
+            <h2>{{proy.shortname}}</h2>
+            <p>{{proy.name}}</p>
+            <p>{{proy.owner}}</p>
+            <p>{{proy.start_date}}</p>
+            <p>{{proy.end_date}}</p>
+            <p>{{proy.is_active}}</p>
+            <p>{{proy.created_on}}</p>
+        {% endfor %}
+    </div>
+
+</div>
+
+
+{% endblock %}

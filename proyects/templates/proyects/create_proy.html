@@ -1,0 +1,31 @@
+{% extends 'base_layout.html'%}
+
+{% block content%}
+    <p1>Crear Proyecto</p1>
+    <div class="create-proyecto">
+        <h2>Crear un nuevo proyecto</h2>
+        <form class = "site-form" action="{% url 'proyects:crear'%}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% for field in form %}
+              <p>
+                {% if field.label_tag == 'Start Date' %}
+                    <p1>Crear kahjskd</p1>
+                {% else %}
+                  {{ field.label_tag }}<br>
+                  {{ field }}
+                {% endif %}
+
+                {% if field.help_text %}
+                  <small style="color: grey">{{ field.help_text }}</small>
+                {% endif %}
+                {% for error in field.errors %}
+                  <p style="color: red">{{ error }}</p>
+                {% endfor %}
+              </p>
+
+            {% endfor %}
+
+            <input type="submit" value="Crear">
+        </form>
+    </div>
+{% endblock%}

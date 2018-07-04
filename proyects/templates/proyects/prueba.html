@@ -1,0 +1,62 @@
+{% extends 'base_layout.html'%}
+{% block content%}
+<p1>Crear Proyecto</p1>
+<div class="create-proyecto">
+  <h2>Crear un nuevo proyecto</h2>
+  <form class = "site-form" action="{% url 'proyects:crear'%}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-row field-shortname">
+      <div>
+        <label class="required" for="id_shortname">Shortname:</label>
+        <input type="text" name="shortname" value="PruCom" class="vTextField" maxlength="20" required="" id="id_shortname">
+      </div>
+    </div>
+    <div class="form-row field-name">
+      <div>
+        <label class="required" for="id_name">Name:</label>
+        <input type="text" name="name" value="Prueba Comision" class="vTextField" maxlength="200" required="" id="id_name">
+      </div>
+    </div>
+    <div class="form-row field-owner">
+      <div>
+        <label class="required" for="id_owner">Owner:</label>
+        <div class="related-widget-wrapper">
+          <select name="owner" required="" id="id_owner">
+            <option value="">---------</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="form-row field-start_date">
+      <div>
+        <label class="required" for="id_start_date">Start date:</label>
+        <input type="text" name="start_date" value="01/01/2018" class="vDateField" size="10" required="" id="id_start_date">
+          <span class="datetimeshortcuts">&nbsp;
+              <a href="#" id="calendarlink0">
+              </a>
+          </span>
+        <br><span class="timezonewarning">Nota: Ud. se encuentra en una zona horaria que est&aacute; 3 horas atrasada respecto a la del servidor.</span>
+      </div>
+    </div>
+    <div class="form-row field-end_date">
+      <div>
+        <label class="required" for="id_end_date">End date:</label>
+        <input type="text" name="end_date" value="31/01/2018" class="vDateField" size="10" required="" id="id_end_date">
+          <span class="datetimeshortcuts">&nbsp;
+              <a href="#" id="calendarlink1">
+              </a>
+          </span>
+        <br>
+          <span class="timezonewarning">Nota: Ud. se encuentra en una zona horaria que est&aacute; 3 horas atrasada respecto a la del servidor.</span>
+      </div>
+    </div>
+    <div class="form-row field-is_active">
+      <div class="checkbox-row">
+        <input type="checkbox" name="is_active" id="id_is_active" checked="">
+          <label class="vCheckboxLabel" for="id_is_active">Is active</label>
+      </div>
+    </div>
+    <input type="submit" value="Crear">
+  </form>
+</div>
+{% endblock%}
