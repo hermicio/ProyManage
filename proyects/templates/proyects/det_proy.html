@@ -3,19 +3,16 @@
 {% block content %}
 
 <div class="detalle_proy">
-    <div class="proyects">
-        {% for proy in proyects %}
-            <h2>{{proy.shortname}}</h2>
-            <p>{{proy.name}}</p>
-            <p>{{proy.owner}}</p>
-            <p>{{proy.start_date}}</p>
-            <p>{{proy.end_date}}</p>
-            <p>{{proy.is_active}}</p>
-            <p>{{proy.created_on}}</p>
-        {% endfor %}
-    </div>
-
+    <br class="proyects">
+        <label>Nombre: <a >{{proyects.shortname}}</a> </label></br>
+        <label>Nombre Completo: <a>{{proyects.name}}</a> </label></br>
+        <label>Asignado: <a>{{proyects.owner}}</a> </label></br>
+        <label>Fecha Inicio: <a>{{proyects.start_date}}</a> </label></br>
+        <label>Fecha Fin: <a>{{proyects.end_date}}</a> </label></br>
+        <label>Activo?<input type="checkbox"{% if proyects.is_active %} checked="checked"{% endif %}></label></br>
+        <label>Fecha Creacion: <a>{{proyects.created_on}}</a> </label></br>
 </div>
 
+<a href="{% url 'proyects:crear_task' proy=proyects.shortname %}" class="button">Crear Tarea</a>
 
 {% endblock %}

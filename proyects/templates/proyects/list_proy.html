@@ -1,13 +1,15 @@
 {% extends 'base_layout.html'%}
 
 {% block content%}
-    <p1>Listas de Proyectos</p1>
+    <u><h2>Lista de Proyectos</h2></u> </br>
     <div class="proyects">
         {% for proy in proyects %}
 
         <div class="proyects">
-            <h2><a href="{% url 'proyects:detalle' %}">{{ proy.name }}</a> </h2>
+            <h3><a href="{% url 'proyects:detalle' shortname=proy.shortname %}">{{ proy.name }}</a> </h3>
         </div>
         {% endfor %}
     </div>
+
+    <a href="{% url 'proyects:crear' %}" class="button">Crear Proyecto</a>
 {% endblock%}

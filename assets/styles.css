@@ -1,3 +1,4 @@
+
 body{
     background-color: #0f121f;
     ##background-image: url(fondo.jpg);
@@ -19,4 +20,43 @@ h1,h2,h3,h4,h5{
 a,a:hover, a:visited{
     color: #fff;
     text-decoration: none;
+}
+
+table, th, td {
+    border: 1px solid white;
+    padding: 5px;
+}
+table {
+    border-spacing: 15px;
+}
+
+.btn {
+    border: none; /* Remove borders */
+    color: white; /* Add a text color */
+    padding: 14px 28px; /* Add some padding */
+    cursor: pointer; /* Add a pointer cursor on mouse-over */
+}
+
+.success {background-color: #4CAF50;} /* Green */
+.success:hover {background-color: #46a049;}
+
+.info {background-color: #2196F3;} /* Blue */
+.info:hover {background: #0b7dda;}
+
+.warning {background-color: #ff9800;} /* Orange */
+.warning:hover {background: #e68a00;}
+
+.danger {background-color: #f44336;} /* Red */
+.danger:hover {background: #da190b;}
+
+.default {background-color: #e7e7e7; color: black;} /* Gray */
+.default:hover {background: #ddd;}
+
+a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    text-decoration: none;
+    color: initial;
 }
