@@ -4,25 +4,57 @@
 
         <meta charset="UTF-8">
         <title>Proyectos</title>
-        <link rel="stylesheet" href="{% static 'styles.css'%}">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script rel="stylesheet" href="{% static 'jquery-3.3.1.min.js' %}"></script>
+        <script rel="stylesheet" href="{% static 'bootstrap.min.js' %}"></script>
+
     </head>
     <body>
         <header class="wrapper">
-            <h1><a href="{% url 'home' %}"><img src="{% static 'logo.jpg' %}"/></a> </h1>
-            <nav>
-                <ul>
-                    {% if user.is_authenticated %}
-                        <li>
-                            <form class = "logout-link" action="{% url 'accounts:logout' %}" method="POST">
-                                {% csrf_token %}
-                                <button type="submit">Logout</button>
-                            </form>
-                        </li>
 
-                    {% else %}
-                        <li><a href="{% url 'accounts:login'%}">Login</a></li>
-                        <li><a href="{% url 'accounts:logup'%}">Registrar</a></li>
-                    {% endif%}
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                      </button>
+                        <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'logo.jpg' %}"/></a>
+                    </div>
+                </div>
+                <div>
+                    <ul class="nav navbar-nav">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Projects</a></li>
+                    <li><a href="#">Contact</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        {% if user.is_authenticated %}
+                        <li>
+                            <a href="#">
+                                <form class = "logout-link" action="{% url 'accounts:logout' %}" method="POST">
+                                    {% csrf_token %}
+                                    <span class="glyphicon glyphicon-log-in">   </span>
+                                    <a type = "submit">Logout</a>
+                                </form>
+                        </li>
+                        {% else %}
+                        <li>
+                            <a href="{% url 'accounts:login'%}">Login</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'accounts:logup'%}">Registrar</a>
+                        </li>
+                        {% endif%}
+                    </ul>
+                </div>
+                <ul>
+
+
+
                 </ul>
             </nav>
 
