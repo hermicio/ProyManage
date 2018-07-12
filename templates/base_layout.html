@@ -24,12 +24,10 @@
                         <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'logo.jpg' %}"/></a>
                     </div>
                 </div>
-                <div>
+                <div class="container-fluid">
                     <ul class="nav navbar-nav">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Projects</a></li>
-                    <li><a href="#">Contact</a></li>
+                        <li><a href="#">Proyectos</a></li>
+                        <li><a href="#">About</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         {% if user.is_authenticated %}
@@ -37,8 +35,8 @@
                             <a href="#">
                                 <form class = "logout-link" action="{% url 'accounts:logout' %}" method="POST">
                                     {% csrf_token %}
-                                    <span class="glyphicon glyphicon-log-in">   </span>
-                                    <a type = "submit">Logout</a>
+                                    <button class="btn btn-link" type="submit"><span class="glyphicon glyphicon-log-in"></span> Logout</button>
+
                                 </form>
                         </li>
                         {% else %}
@@ -51,11 +49,6 @@
                         {% endif%}
                     </ul>
                 </div>
-                <ul>
-
-
-
-                </ul>
             </nav>
 
         </header>

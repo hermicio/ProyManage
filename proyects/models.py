@@ -18,6 +18,9 @@ class Project(models.Model):
     is_active = models.BooleanField(default = True)
     created_on = models.DateTimeField(auto_now_add = 1)
 
+    def __str__(self):
+        return self.name
+
 
 class Task(models.Model):
     #tareas

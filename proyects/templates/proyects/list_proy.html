@@ -5,11 +5,13 @@
     <div class="proyects">
         {% for proy in proyects %}
 
-        <div class="proyects">
-            <h3><a href="{% url 'proyects:detalle' shortname=proy.shortname %}">{{ proy.name }}</a> </h3>
-        </div>
+            <div class="proyects">
+                <h3><a href="{% url 'proyects:detalle' proyects.shortname%}">{{ proy.name }}</a> </h3>
+            </div>
         {% endfor %}
     </div>
 
-    <a href="{% url 'proyects:crear' %}" class="button">Crear Proyecto</a>
+    <a href="#" class="button">Crear Proyecto</a>
 {% endblock%}
+
+{% url 'proyects:crear' %}

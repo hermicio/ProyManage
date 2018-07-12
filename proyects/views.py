@@ -16,7 +16,7 @@ def lista_proy(request):
 
     return render(request,'proyects/list_proy.html',{'proyects': proyects})
 
-def detalles_art(request, shortname):
+def detalles_proy(request, shortname):
 
     proyects = Project.objects.get(shortname=shortname)
 
@@ -34,7 +34,7 @@ def create_proy (request):
     else:
         form = forms.create_proyect()
     return render(request, 'proyects/create_proy.html', {'form':form})
-
+"""
 def create_task(request,proy):
     if request.method =='POST':
         form = forms.create_task(request.POST, request.FILES)
@@ -48,3 +48,4 @@ def create_task(request,proy):
     else:
         form = forms.create_task(proy)
     return render(request, 'proyects/create_task.html', {'form':form})
+"""
